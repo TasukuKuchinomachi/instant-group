@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.inputRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: #4361ee;
+}
+
+.addButton {
+  padding: 0.6rem 1.2rem;
+  background: #2ec4b6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.addButton:hover:not(:disabled) {
+  background: #26a69a;
+}
+
+.addButton:disabled {
+  background: #b0b0b0;
+  cursor: not-allowed;
+}
+
+.nameList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nameItem {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #f0f0f5;
+  padding: 0.35rem 0.6rem 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 0.15rem;
+  transition: color 0.2s;
+}
+
+.removeButton:hover {
+  color: #e07a5f;
+}
