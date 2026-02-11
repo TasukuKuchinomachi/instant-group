@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback } from 'react'
 import { NameInput } from './components/NameInput.tsx'
 import { GroupResult } from './components/GroupResult.tsx'
 import { divideIntoGroups } from './utils/shuffle.ts'
@@ -16,7 +16,12 @@ export function App() {
   }
 
   const handleRemove = (index: number) => {
-    setNames((prev) => prev.filter((_, i) => i !== index))
+    const next = names.filter((_, i) => i !== index)
+    setNames(next)
+    const max = Math.max(2, next.length)
+    if (groupCount > max) {
+      setGroupCount(max)
+    }
   }
 
   const handleDivide = useCallback(() => {
@@ -30,14 +35,6 @@ export function App() {
   const handleReset = () => {
     setGroups(null)
   }
-
-  // グループ数が人数を超えていたら補正
-  useEffect(() => {
-    const max = Math.max(2, names.length)
-    if (groupCount > max) {
-      setGroupCount(max)
-    }
-  }, [names.length, groupCount])
 
   return (
     <div className={styles.app}>
